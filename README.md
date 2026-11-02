@@ -1,66 +1,245 @@
-Overview
-This project is a fully functional IoT-based multipurpose agricultural robot designed to perform four essential farming operations  grass cutting, seed sowing, pesticide spraying, and plant watering  using a single compact platform.
-The robot is powered by a rechargeable battery with solar charging and can be controlled remotely through an IoT dashboard using the ESP8266 NodeMCU. The main idea behind the project is to reduce human effort in agricultural tasks while promoting sustainable and smart farming methods.
+<div align="center">
 
-Project Description
-1️⃣ Concept and Objective
-The goal of this project was to design a multi-function agricultural vehicle that could automate basic farm operations using simple, low-cost electronics and mechanical mechanisms. The robot is capable of:
-Moving across the field on four independent DC motors.
-Cutting grass using a high-speed motor.
-Sowing seeds at regular intervals using a rotary disc mechanism.
-Spraying water or pesticide from an onboard tank using a DC pump.
-Sending soil moisture, humidity, and temperature readings to a cloud dashboard in real-time.
-All these features are controlled wirelessly via the ESP8266 microcontroller using relays, making it a powerful yet simple automation platform for agricultural use.
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1E5128,100:A7C957&height=200&section=header&text=Smart%20Solar%20Agriculture%20Robot&fontSize=38&fontColor=ffffff&desc=Cut%20%E2%80%A2%20Sow%20%E2%80%A2%20Spray%20%E2%80%A2%20Water%20%E2%80%94%20one%20robot%2C%20one%20phone&descAlignY=72&descSize=17&animation=fadeIn" width="100%" alt="Smart Solar Agriculture Robot banner"/>
 
-2️⃣ Design and Body Construction
-The entire structure was fabricated on an acrylic base sheet, which acts as the main chassis. Four DC geared motors are mounted directly on the base one for each wheel. This gives the robot a stable and balanced drive system capable of moving in all directions (forward, reverse, and turning).
-The robot’s body includes:
-A seed hopper and rotary disc mechanism at the center.
-A liquid tank and pump system at the rear.
-A grass cutting motor with a blade mounted at the front.
-A solar panel mounted on the top for charging the battery.
-All the electrical components are mounted on one side of the chassis for easy wiring and access, as visible in the reference images.
+### 🌱 Four farm jobs. One solar-charged robot. Controlled from a phone.
 
-3️⃣ Drive System and Movement
-The robot uses four individual 12V DC geared motors, each connected to a wheel. All four motors are connected through relay switches, which are controlled by the ESP8266. By activating specific relays, the robot can move:
-Forward (all wheels in same direction) Reverse (all wheels reversed) Left turn (right-side motors ON, left-side OFF) Right turn (left-side motors ON, right-side OFF) Stop (all relays OFF). This simple relay-based motor control eliminates the need for a motor driver, while still providing reliable directional control.
+![ESP8266](https://img.shields.io/badge/NodeMCU%20ESP8266-E7352C?style=for-the-badge&logo=espressif&logoColor=white)
+![C++](https://img.shields.io/badge/Arduino%20C%2B%2B-00599C?style=for-the-badge&logo=arduino&logoColor=white)
+![Blynk](https://img.shields.io/badge/Blynk%20IoT-23C48E?style=for-the-badge)
+![Solar](https://img.shields.io/badge/Solar%20charging-F4A300?style=for-the-badge)
+![Laser cut](https://img.shields.io/badge/Laser--cut%20acrylic-6C757D?style=for-the-badge)
 
-4️⃣ Seed Sowing Mechanism
-At the center of the robot is the seed sowing unit, built using transparent acrylic sheets. It has a hopper for storing seeds and a rotating disc driven by a DC motor. The disc has small cavities that carry seeds from the hopper and drop them uniformly through a chute into the soil as it rotates. The sowing motor is connected to the relay board and can be turned ON or OFF wirelessly through the IoT dashboard. This ensures controlled and even seed distribution during movement.
+![Funding](https://img.shields.io/badge/💰%20AICTE-IDEA%20Lab%20funded-gold?style=flat-square)
+![Place](https://img.shields.io/badge/KLE%20Technological%20University-2022-1E5128?style=flat-square)
+![Role](https://img.shields.io/badge/my%20role-concept%20·%20circuits%20·%20integration-blueviolet?style=flat-square)
 
-5️⃣ Grass Cutting System
-The front section of the robot is fitted with a high-RPM DC motor attached to a cutter blade. The motor is powered via a relay output from the ESP8266. When activated, it spins at high speed and cuts the grass efficiently as the robot moves forward. A protective casing is provided to ensure safety and to prevent debris from hitting the electronics.
+</div>
 
-6️⃣ Pesticide Spraying and Watering System
-The rear section of the robot houses a transparent acrylic tank filled with either water or pesticide solution. A 12V mini DC pump draws liquid from the tank and pushes it through PVC pipes and elbows to a spray nozzle mounted at the top. The pump is also connected to the relay module and can be controlled remotely. When activated, it sprays the liquid evenly over the crops. The use of flexible PVC tubing ensures smooth flow and easy maintenance.
+---
 
-7️⃣ Electronic Control and IoT Integration
-At the heart of the robot lies the ESP8266 NodeMCU microcontroller. It is responsible for controlling all relays, reading sensors, and communicating with the IoT platform. An 8-channel relay module is used to operate:
-The four drive motors
-The grass-cutting motor
-The seed-sowing motor
-The water pump
-All components are powered by a 12V Li-ion battery pack, and the logic circuit (ESP8266 and relays) is supplied through a buck converter to provide 5V power.
-For wireless operation, the ESP8266 connects to Wi-Fi and communicates with an IoT dashboard (such as Blynk). From the dashboard, the user can: Move the robot in different directions. Start or stop the cutter, pump, or seed motor. Monitor real-time sensor readings like soil moisture, temperature, and humidity. The system can also log data over time to help analyze field conditions.
+## 📌 At a glance
 
-8️⃣ Solar Power and Battery Management
-To make the robot self-sustaining, a solar panel is mounted on the top of the chassis. The panel charges the Li-ion battery pack via a charge controller, allowing the system to recharge while operating in sunlight. This feature eliminates dependency on external charging and enables long hours of operation in open fields.
+> A compact **multipurpose agriculture robot** that does four jobs farmers normally do by hand: **grass cutting, seed sowing, pesticide spraying and watering**. It runs on a **solar-charged battery** and is driven from a **phone dashboard over Wi-Fi** — no cables, no remote, no laptop.
 
-9️⃣ Sensors and Data Monitoring
-The robot integrates:
-A soil moisture sensor to detect soil wetness and automatically trigger watering if required.
-A DHT11/DHT22 sensor to measure ambient temperature and humidity.
-The sensor values are transmitted in real-time to the IoT dashboard, helping farmers monitor field conditions remotely.
+<div align="center">
+  <img src="media/agri-hero.jpg" width="85%" alt="Agriculture robot: seed hopper, spray tank and cutter on one chassis"/>
+  <br/><sub><i>Seed hopper with rotary metering disc, spray tank and pump, front cutter — all on one laser-cut chassis</i></sub>
+</div>
 
-🔌 Power Flow Explanation
-The power from the solar panel charges the battery through a charge controller.
-The battery output is distributed in two ways:
-12V directly to high-load devices like motors and pumps through the relays.
-5V regulated power supplied to the ESP8266 and sensors via a buck converter.
-The ESP8266 acts as the central brain, controlling the relays to turn ON/OFF each motor based on IoT commands or automatic logic from the sensors.
+| 🗓️ Built | 💰 Funding | 🧠 My role | 🔋 Power |
+|:---:|:---:|:---:|:---:|
+| 2022 | AICTE IDEA Lab | Concept · circuit design · hardware integration | 12 V Li-ion + solar panel |
 
-🔄 Working Summary
-When powered ON, the ESP8266 connects to the Wi-Fi network and initializes all modules. The user operates the robot through an IoT dashboard. Movement is controlled by activating relays that power the respective drive motors. The cutter motor, pump, and seed sowing motor are switched ON as needed. Soil and air data are continuously read and updated on the dashboard. The solar panel maintains battery charge during daylight use.
+---
 
-🧠 Features and Advantages
-Performs multiple farming tasks with one robot (cutting, sowing, spraying, watering). Fully wireless control through an IoT dashboard. Real-time environmental monitoring with sensor data. Solar-assisted charging ensures long, uninterrupted operation. Low-cost, modular, and easy to maintain design. Can be customized for larger scale or specific crop requirements.
+## 📑 Contents
+
+- [The problem](#-the-problem)
+- [Four tools on one robot](#-four-tools-on-one-robot)
+- [How it works](#-how-it-works)
+- [Hardware](#-hardware)
+- [Mechanical design & fabrication](#-mechanical-design--fabrication)
+- [Gallery](#-gallery)
+- [Code](#-code)
+- [Repository map](#-repository-map)
+- [What I learned](#-what-i-learned)
+
+---
+
+## 🎯 The problem
+
+On small farms, cutting, sowing, spraying and watering are still done by hand — slow, tiring work, and spraying exposes people to chemicals. Buying a separate machine for each job is out of reach for most small farmers.
+
+**Goal:** one low-cost, modular robot that can do all four, powered by the sun and driven from a phone.
+
+---
+
+## 🧰 Four tools on one robot
+
+<table>
+<tr>
+<td width="25%" align="center" valign="top">
+
+### ✂️ Cutting
+High-RPM DC motor with a guarded blade at the front trims grass as the robot drives.
+
+</td>
+<td width="25%" align="center" valign="top">
+
+### 🌾 Sowing
+An acrylic seed hopper feeds a **motor-driven rotary disc** that drops seeds at even intervals.
+
+</td>
+<td width="25%" align="center" valign="top">
+
+### 💦 Spraying
+A **12 V pump** pushes pesticide from the onboard tank through PVC lines to the nozzle.
+
+</td>
+<td width="25%" align="center" valign="top">
+
+### 🚿 Watering
+The same tank-and-pump circuit waters crops, switched on and off from the app.
+
+</td>
+</tr>
+</table>
+
+**Plus:**
+- ☀️ **Solar panel** on top charges the battery through a charge controller while the robot works
+- 📱 **One phone controls everything** — drive, cutter, seed disc and pump
+- 🌡️ **Soil-moisture and temperature/humidity sensing** shown on the IoT dashboard
+
+---
+
+## 🔄 How it works
+
+```mermaid
+flowchart LR
+    subgraph Control["3 × NodeMCU ESP8266"]
+        N1[NodeMCU 1]
+        N2[NodeMCU 2]
+        N3[NodeMCU 3]
+    end
+    P[📱 Blynk app] <-->|Wi-Fi| N1 & N2 & N3
+    N1 & N2 & N3 --> R[8-channel relay boards]
+    R --> W[4 × DC drive motors]
+    R --> C[✂️ Cutter motor]
+    R --> S[🌾 Seed-disc motor]
+    R --> PU[💦 12 V pump]
+    SOL[☀️ Solar panel] --> CC[Charge controller] --> BAT[🔋 12 V Li-ion]
+    BAT -->|12 V| R
+    BAT --> BK[Buck converter] -->|5 V| Control
+```
+
+**Why relays instead of motor drivers?** Each motor only needs on/off and direction, so relay switching kept the electronics simple, cheap and easy to repair in the field. Driving is done by switching motor pairs: both sides forward, both reverse, or one side only to turn.
+
+**Why three NodeMCUs?** The robot has more loads than one board has pins. The same firmware runs on all three boards with different Blynk virtual pins, and all three join the **same hotspot** — so one phone controls the whole robot.
+
+---
+
+## 🔌 Hardware
+
+| Subsystem | Components |
+|---|---|
+| 🧠 **Controllers** | 3 × NodeMCU (ESP8266) |
+| ⚡ **Switching** | 8-channel relay modules |
+| 🏎️ **Drive** | 4 × 12 V DC geared motors, one per wheel |
+| 🛠️ **Tools** | High-RPM cutter motor · seed-disc motor · 12 V diaphragm pump · PVC spray line |
+| 🌡️ **Sensors** | Soil-moisture sensor · DHT temperature/humidity sensor |
+| 🔋 **Power** | 12 V Li-ion pack · solar panel + charge controller · buck converter (5 V logic) |
+| 📱 **Interface** | Blynk IoT dashboard on a smartphone |
+
+---
+
+## 📐 Mechanical design & fabrication
+
+- 📏 Wheels, seed-sowing unit and tank panels were **drawn as DXF files** and **laser-cut**
+- 🧪 Transparent acrylic for the hopper and tank, so seed level and liquid level are visible at a glance
+- 🔩 Electronics mounted on one side panel for easy wiring and maintenance
+- 📂 All cutting files are in this repo: [`dxf files/`](dxf%20files) (CAD) and [`rd files/`](rd%20files) (RDWorks laser jobs)
+
+---
+
+## 📸 Gallery
+
+<table>
+<tr>
+<td width="50%"><img src="media/agri-electronics.jpg" alt="Relay boards and NodeMCUs on the side panel"/></td>
+<td width="50%"><img src="media/agri-top.jpg" alt="Top view of the seed hopper and rotary disc"/></td>
+</tr>
+<tr>
+<td align="center"><sub><b>Electronics panel</b> — relay boards and NodeMCUs</sub></td>
+<td align="center"><sub><b>Top view</b> — seed hopper and metering disc</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="media/agri-solar.jpg" alt="Solar panel mounted on the robot"/></td>
+<td width="50%"><img src="media/agri-hopper.jpg" alt="Front view with cutter, hopper and wiring"/></td>
+</tr>
+<tr>
+<td align="center"><sub><b>Solar panel</b> — charges the battery on the move</sub></td>
+<td align="center"><sub><b>Front view</b> — cutter, hopper and wiring</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="media/agri-side.jpg" alt="Side view with spray tank and PVC lines"/></td>
+<td width="50%"><img src="media/agri-rear.jpg" alt="Rear three-quarter view"/></td>
+</tr>
+<tr>
+<td align="center"><sub><b>Spray system</b> — tank, pump and PVC line</sub></td>
+<td align="center"><sub><b>Rear view</b> — drive wheels and tank</sub></td>
+</tr>
+</table>
+
+---
+
+## 💻 Code
+
+[`multipurpose_Agriculture_robot_code.ino`](multipurpose_Agriculture_robot_code/multipurpose_Agriculture_robot_code.ino) — each Blynk button switches one relay:
+
+```cpp
+#define relay1 D4          // 8 relays on NodeMCU pins D0–D7
+
+BLYNK_WRITE(V0) {          // app button → relay
+  int button = param.asInt();
+  digitalWrite(relay1, button == 1 ? HIGH : LOW);
+}
+
+void loop() { Blynk.run(); }
+```
+
+| Virtual pins | Relays | Use |
+|:---:|:---:|---|
+| `V0` – `V7` | 1 – 8 | Drive motors and tools — mapped per NodeMCU |
+
+<details>
+<summary><b>▶ How to run it</b></summary>
+
+1. Install the **ESP8266 board package** and the **Blynk** library in the Arduino IDE
+2. Open the sketch and enter **your own** Blynk template ID, auth token and Wi-Fi name/password
+3. Select **NodeMCU 1.0 (ESP-12E)** and upload — repeat for each board with its own virtual pins
+4. Put all boards on the **same hotspot** so one phone controls the whole robot
+5. Add eight buttons (`V0`–`V7`) to the Blynk dashboard
+
+</details>
+
+---
+
+## 🗂️ Repository map
+
+```
+📦 Multipurpose-Agriculture-Robot-
+ ┣ 📂 multipurpose_Agriculture_robot_code
+ ┃ ┗ 📜 multipurpose_Agriculture_robot_code.ino   ← NodeMCU + Blynk relay control
+ ┣ 📂 dxf files      ← laser-cut parts: wheels, seed-sowing unit, tank panels
+ ┣ 📂 rd files       ← RDWorks laser-cutter jobs
+ ┣ 📂 media          ← photos used in this README
+ ┣ 📕 IMG_20220627_014237.pdf
+ ┗ 📘 README.md
+```
+
+---
+
+## 🧠 What I learned
+
+- 🔗 **Integrating mechanics, power and IoT** into one machine that works outdoors
+- ⚡ **Power design** — splitting a 12 V motor bus from a regulated 5 V logic rail, with solar charging
+- ✂️ **Design for laser cutting** — going from DXF drawings to a finished acrylic body
+- 📶 **Scaling IoT control** across several microcontrollers from one app
+
+---
+
+<div align="center">
+
+### 👋 Built by **Ajay Arjun Mannolkar**
+M.Sc. Mechatronics & Cyber-Physical Systems · THD Deggendorf
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-technolkar.github.io-1E5128?style=for-the-badge&logo=githubpages&logoColor=white)](https://technolkar.github.io)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-ajaymannolkar-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ajaymannolkar)
+[![YouTube](https://img.shields.io/badge/YouTube-TECHNOL%20KAR-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@TechnolkarInnovations)
+
+⭐ *If this project helped you, give it a star!*
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:A7C957,100:1E5128&height=100&section=footer" width="100%"/>
+
+</div>
